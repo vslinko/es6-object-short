@@ -27,4 +27,24 @@ describe('ES6ObjectShort', function() {
 
     expectTransform(code, result);
   });
+
+  it('works with shorthand methods', function() {
+    var code = [
+      'var a = {',
+      '  test() {',
+      '    return 1;',
+      '  }',
+      '};'
+    ].join('\n');
+
+    var result = [
+      'var a = {',
+      '  test: function() {',
+      '    return 1;',
+      '  }',
+      '};'
+    ].join('\n');
+
+    expectTransform(code, result);
+  });
 });
